@@ -24,4 +24,4 @@ class WaterBottle(models.Model):
     current_quantity = models.IntegerField()
 
     def __str__(self):
-        f'SKU: {self.SKU}, Brand: {self.brand}, Mouth Size: {self.mouth_size}, Size: {self.size}, Color: {self.color}, Supplied By: {self.supplied_by.name}, cost: {self.cost}, Current Quantity: {self.current_quantity}'
+        return f'SKU: {self.SKU}, Brand: {self.brand}, Mouth Size: {self.mouth_size}, Size: {self.size}, Color: {self.color}, Supplied By: {self.supplied_by.name}, cost: {self.cost}, Current Quantity: {self.current_quantity}'
