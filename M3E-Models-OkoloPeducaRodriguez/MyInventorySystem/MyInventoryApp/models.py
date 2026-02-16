@@ -5,7 +5,7 @@ class Supplier(models.Model):
     name = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField()
 
     def GetName(self):
         return self.name
