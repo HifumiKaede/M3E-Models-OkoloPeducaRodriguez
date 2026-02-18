@@ -4,11 +4,11 @@ b.
 c.
 d.
 e.
-f. print(WaterBottle.objects.filter(supplied_by__name = "Sailfish, Inc.") [PEDUCAKarl]
+f. print(WaterBottle.objects.filter(supplied_by__name = "Sailfish, Inc.")) [PEDUCAKarl]
 g.
 h.
-i. print(WaterBottle.objects.filter(cost__gte=3000) [PEDUCAKarl]
-j. print(WaterBottle.objects.filter(supplied_by__name__in = ["Bucky, Inc.", "Meister, Inc."]) [PEDUCAKarl]
+i. print(WaterBottle.objects.filter(cost__gte=3000)) [PEDUCAKarl]
+j. print(WaterBottle.objects.filter(supplied_by__name__in = ["Bucky, Inc.", "Meister, Inc."])) [PEDUCAKarl]
 k.
 l.
 
