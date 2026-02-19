@@ -31,11 +31,17 @@ l. print(WaterBottle.objects.filter(mouth_type="wide").exclude(cost=3000))#[OKOL
 [P: RODRIGUEZEric] all WaterBottles with low quantity (50 or below)
     [S: OKOLOChonel] print(WaterBottle.objects.filter(quantity__lte=50))
 [P: RODRIGUEZEric] all WaterBottles with wide mouth that cost less than 3000
+    [S: PEDUCAKarl] print(WaterBottle.objects.filter(cost__lt=3000, mouth_size__iexact="Wide Mouth"))
 [P: RODRIGUEZEric] all non-black WaterBottles costing 3000 or higher
+    [S: PEDUCAKarl] print(WaterBottle.objects.exclude(color__iexact="black").filter(cost__gte=3000))
 [P: RODRIGUEZEric] all WaterBottles measured in Oz supplied by a Japan based supplier
+    [S: PEDUCAKarl] print(WaterBottle.objects.filter(size__icontains="Oz", supplied_by__country__iexact="Japan"))
 [P: OKOLOChonel] all WaterBottles with a brand name starting with the letter "S"
+    [S: PEDUCAKarl] print(WaterBottle.objects.filter(brand__istartswith="S"))
 [P: OKOLOChonel] all Suppliers not based in Asia
+    [S: PEDUCAKarl] print(Supplier.objects.exclude(country__in=["Japan","Thailand","India","China","Philippines"]))
 [P: OKOLOChonel] all WaterBottles with quantities between 200 and 500
+    [S: PEDUCAKarl] print(WaterBottle.objects.filter(current_quantity__gte=200, current_quantity__lte=500))
 [P: OKOLOChonel] all WaterBottles supplied by companies whose names contain "Inc."
 [P: OKOLOChonel] all WaterBottles costing less than 2500, sorted by brand alphabetically
 [P: OKOLOChonel] all Suppliers whose name ends with "Corp"
