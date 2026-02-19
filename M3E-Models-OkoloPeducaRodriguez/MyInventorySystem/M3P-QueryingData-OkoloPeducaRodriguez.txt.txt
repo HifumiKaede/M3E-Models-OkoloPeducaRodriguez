@@ -13,8 +13,11 @@ k. print(WaterBottle.objects.filter(size__icontains="Oz").order_by("-cost")) #[R
 l.
 
 [P: PEDUCAKarl] all WaterBottles from Wilkins, Inc
+    [S: RODRIGUEZEric] print(WaterBottle.objects.filter(supplied_by__name="Wilkins, Inc"))
 [P: PEDUCAKarl] all red WaterBottles costing less than 3500
+    [S: RODRIGUEZEric] print(WaterBottle.objects.filter(color__iexact="red", cost__lt=3500))
 [P: PEDUCAKarl] all Standard Mouth WaterBottles costing more than 3000
+    [S: RODRIGUEZEric] print(WaterBottle.objects.filter(mouth_size__icontains="standard", cost__gt=3000))
 [P: PEDUCAKarl] all WaterBottles with more than 100 in quantities
 [P: PEDUCAKarl] all transparent WaterBottles with alphabetical brand
 [P: PEDUCAKarl] all 18 and 24 Oz WaterBottles costing less than 3000    
