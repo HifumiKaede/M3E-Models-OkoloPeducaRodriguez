@@ -5,7 +5,7 @@ c. print(WaterBottle.objects.order_by("brand")) #[RODRIGUEZEric]
 d. print(WaterBottle.objects.filter(color__iexact="black")) #[RODRIGUEZEric]
 e. print(WaterBottle.objects.filter(color__iexact="white", brand="HydroFlask"))#[OKOLOChonel]
 f. print(WaterBottle.objects.filter(supplied_by__name = "Sailfish, Inc.")) #[PEDUCAKarl]
-g. print(WaterBottle.objects.filter(color="blue", supplied_by__name="Bucky Inc"))#[OKOLOChonel]
+g. print(WaterBottle.objects.filter(color="blue", supplied_by__name="Bucky, Inc."))#[OKOLOChonel]
 h. print(Supplier.objects.filter(country="Germany").values("name"))#[OKOLOChonel]
 i. print(WaterBottle.objects.filter(cost__gte=3000)) #[PEDUCAKarl]
 j. print(WaterBottle.objects.filter(supplied_by__name__in = ["Bucky, Inc.", "Meister, Inc."])) #[PEDUCAKarl]
@@ -37,11 +37,14 @@ l. print(WaterBottle.objects.filter(mouth_size__icontains="wide").exclude(cost=3
 [P: RODRIGUEZEric] all WaterBottles measured in Oz supplied by a Japan based supplier
     [S: PEDUCAKarl] print(WaterBottle.objects.filter(size__icontains="Oz", supplied_by__country__iexact="Japan"))
 [P: OKOLOChonel] all WaterBottles with a brand name starting with the letter "S"
-    [S: PEDUCAKarl] print(WaterBottle.objects.filter(brand__istartswith="S"))
+    [S: RODRIGUEZEric] print(WaterBottle.objects.filter(brand__istartswith="S"))
 [P: OKOLOChonel] all Suppliers not based in Asia
-    [S: PEDUCAKarl] print(Supplier.objects.exclude(country__in=["Japan","Thailand","India","China","Philippines"]))
+    [S: RODRIGUEZEric] print(Supplier.objects.exclude(country__iexact="Japan"))
 [P: OKOLOChonel] all WaterBottles with quantities between 200 and 500
-    [S: PEDUCAKarl] print(WaterBottle.objects.filter(current_quantity__gte=200, current_quantity__lte=500))
+    [S: RODRIGUEZEric] print(WaterBottle.objects.filter(current_quantity__range=(200, 500)))
 [P: OKOLOChonel] all WaterBottles supplied by companies whose names contain "Inc."
+    [S: PEDUCAKarl] print(WaterBottle.objects.filter(supplied_by__name__icontains="Inc."))
 [P: OKOLOChonel] all WaterBottles costing less than 2500, sorted by brand alphabetically
+    [S: PEDUCAKarl] print(WaterBottle.objects.filter(cost__lt=2500).order_by("brand"))
 [P: OKOLOChonel] all Suppliers whose name ends with "Corp"
+    [S: PEDUCAKarl] print(Supplier.objects.filter(name__iendswith="Corp"))
