@@ -34,8 +34,11 @@ l. print(WaterBottle.objects.filter(mouth_type="wide").exclude(cost=3000))#[OKOL
 [P: RODRIGUEZEric] all non-black WaterBottles costing 3000 or higher
 [P: RODRIGUEZEric] all WaterBottles measured in Oz supplied by a Japan based supplier
 [P: OKOLOChonel] all WaterBottles with a brand name starting with the letter "S"
+    [S: RODRIGUEZEric] print(WaterBottle.objects.filter(brand__istartswith="S"))
 [P: OKOLOChonel] all Suppliers not based in Asia
+     [S: RODRIGUEZEric] print(Supplier.objects.exclude(country__iexact="Japan"))
 [P: OKOLOChonel] all WaterBottles with quantities between 200 and 500
+    [S: RODRIGUEZEric] print(WaterBottle.objects.filter(current_quantity__range=(200, 500)))
 [P: OKOLOChonel] all WaterBottles supplied by companies whose names contain "Inc."
 [P: OKOLOChonel] all WaterBottles costing less than 2500, sorted by brand alphabetically
 [P: OKOLOChonel] all Suppliers whose name ends with "Corp"
